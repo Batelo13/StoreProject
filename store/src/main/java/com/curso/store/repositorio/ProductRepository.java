@@ -1,6 +1,6 @@
 package com.curso.store.repositorio;
 
-import com.curso.store.model.Product;
+import com.curso.store.domains.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

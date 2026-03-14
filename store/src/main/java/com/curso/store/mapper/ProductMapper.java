@@ -1,7 +1,7 @@
 package com.curso.store.mapper;
 
 import com.curso.store.dto.ProductDTO;
-import com.curso.store.model.Product;
+import com.curso.store.domains.Product;
 
 public class ProductMapper {
 
