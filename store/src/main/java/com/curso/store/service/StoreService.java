@@ -1,6 +1,6 @@
 package com.curso.store.service;
 
-import com.curso.store.model.Product;
+import com.curso.store.domains.Product;
 import com.curso.store.repositorio.ProductRepository;
 import org.springframework.stereotype.Service;
 

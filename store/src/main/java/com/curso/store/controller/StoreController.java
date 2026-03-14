@@ -2,7 +2,7 @@ package com.curso.store.controller;
 
 import com.curso.store.dto.ProductDTO;
 import com.curso.store.mapper.ProductMapper;
-import com.curso.store.model.Product;
+import com.curso.store.domains.Product;
 import com.curso.store.service.StoreService;
 import org.springframework.web.bind.annotation.*;
 
