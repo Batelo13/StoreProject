@@ -16,7 +16,7 @@ public class OrderService {
     }
 
     public List<Order> listOrders() {
-        return repository.list();
+        return repository.findAll();
     }
 
     public Order createOrder(Order order) {
@@ -24,10 +24,21 @@ public class OrderService {
     }
 
     public Order updateOrder(Long id, Order order) {
-        return repository.update(id, order);
+        Order existingOrder = repository.findById(id).orElse(null);
+
+        if (existingOrder == null) {
+            return null;
+        }
+
+        existingOrder.setUserId(order.getUserId());
+        existingOrder.setCartId(order.getCartId());
+        existingOrder.setPaymentId(order.getPaymentId());
+        existingOrder.setTotal(order.getTotal());
+
+        return repository.save(existingOrder);
     }
 
     public void deleteOrder(Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 }

@@ -25,18 +25,23 @@ public class UserController {
 
     @PostMapping
     public User create(@RequestBody UserDTO dto) {
+
         User user = UserMapper.toEntity(dto);
+
         return service.createUser(user);
     }
 
     @PutMapping("/{id}")
     public User update(@PathVariable Long id, @RequestBody UserDTO dto) {
+
         User user = UserMapper.toEntity(dto);
+
         return service.updateUser(id, user);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
+
         service.deleteUser(id);
     }
 }

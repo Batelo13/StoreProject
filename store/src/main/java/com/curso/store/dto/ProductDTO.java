@@ -11,30 +11,24 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(String name, Double price, ProductCategory category) {
-        this.name = name;
-        this.price = price;
-        this.category = category;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
     public ProductCategory getCategory() {
         return category;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public void setCategory(ProductCategory category) {

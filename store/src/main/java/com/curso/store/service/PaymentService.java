@@ -16,7 +16,7 @@ public class PaymentService {
     }
 
     public List<Payment> listPayments() {
-        return repository.list();
+        return repository.findAll();
     }
 
     public Payment createPayment(Payment payment) {
@@ -24,10 +24,21 @@ public class PaymentService {
     }
 
     public Payment updatePayment(Long id, Payment payment) {
-        return repository.update(id, payment);
+
+        Payment existingPayment = repository.findById(id).orElse(null);
+
+        if (existingPayment == null) {
+            return null;
+        }
+
+        existingPayment.setCartId(payment.getCartId());
+        existingPayment.setAmount(payment.getAmount());
+        existingPayment.setStatus(payment.getStatus());
+
+        return repository.save(existingPayment);
     }
 
     public void deletePayment(Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 }
