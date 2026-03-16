@@ -16,7 +16,7 @@ public class UserService {
     }
 
     public List<User> listUsers() {
-        return repository.list();
+        return repository.findAll();
     }
 
     public User createUser(User user) {
@@ -24,10 +24,20 @@ public class UserService {
     }
 
     public User updateUser(Long id, User user) {
-        return repository.update(id, user);
+
+        User existingUser = repository.findById(id).orElse(null);
+
+        if (existingUser == null) {
+            return null;
+        }
+
+        existingUser.setName(user.getName());
+        existingUser.setEmail(user.getEmail());
+
+        return repository.save(existingUser);
     }
 
     public void deleteUser(Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 }

@@ -25,18 +25,23 @@ public class PaymentController {
 
     @PostMapping
     public Payment create(@RequestBody PaymentDTO dto) {
+
         Payment payment = PaymentMapper.toEntity(dto);
+
         return service.createPayment(payment);
     }
 
     @PutMapping("/{id}")
     public Payment update(@PathVariable Long id, @RequestBody PaymentDTO dto) {
+
         Payment payment = PaymentMapper.toEntity(dto);
+
         return service.updatePayment(id, payment);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
+
         service.deletePayment(id);
     }
 }

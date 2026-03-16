@@ -1,8 +1,19 @@
 package com.curso.store.domains;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "orders")
 public class Order {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Long userId;
     private Long cartId;
     private Long paymentId;
@@ -23,36 +34,36 @@ public class Order {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Long getUserId() {
         return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     public Long getCartId() {
         return cartId;
     }
 
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
-    }
-
     public Long getPaymentId() {
         return paymentId;
     }
 
-    public void setPaymentId(Long paymentId) {
-        this.paymentId = paymentId;
-    }
-
     public Double getTotal() {
         return total;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public void setCartId(Long cartId) {
+        this.cartId = cartId;
+    }
+
+    public void setPaymentId(Long paymentId) {
+        this.paymentId = paymentId;
     }
 
     public void setTotal(Double total) {

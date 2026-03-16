@@ -7,16 +7,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StoreService {
+public class ProductService {
 
     private final ProductRepository repository;
 
-    public StoreService(ProductRepository repository) {
+    public ProductService(ProductRepository repository) {
         this.repository = repository;
     }
 
     public List<Product> listProducts() {
-        return repository.list();
+        return repository.findAll();
     }
 
     public Product createProduct(Product product) {
@@ -24,10 +24,21 @@ public class StoreService {
     }
 
     public Product updateProduct(Long id, Product product) {
-        return repository.update(id, product);
+
+        Product existingProduct = repository.findById(id).orElse(null);
+
+        if (existingProduct == null) {
+            return null;
+        }
+
+        existingProduct.setName(product.getName());
+        existingProduct.setPrice(product.getPrice());
+        existingProduct.setCategory(product.getCategory());
+
+        return repository.save(existingProduct);
     }
 
     public void deleteProduct(Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 }

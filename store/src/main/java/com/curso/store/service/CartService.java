@@ -16,7 +16,7 @@ public class CartService {
     }
 
     public List<Cart> listCarts() {
-        return repository.list();
+        return repository.findAll();
     }
 
     public Cart createCart(Cart cart) {
@@ -24,10 +24,21 @@ public class CartService {
     }
 
     public Cart updateCart(Long id, Cart cart) {
-        return repository.update(id, cart);
+
+        Cart existingCart = repository.findById(id).orElse(null);
+
+        if (existingCart == null) {
+            return null;
+        }
+
+        existingCart.setUserId(cart.getUserId());
+        existingCart.setProductIds(cart.getProductIds());
+        existingCart.setTotal(cart.getTotal());
+
+        return repository.save(existingCart);
     }
 
     public void deleteCart(Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 }

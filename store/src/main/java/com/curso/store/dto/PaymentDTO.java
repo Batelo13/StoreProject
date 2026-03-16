@@ -11,30 +11,24 @@ public class PaymentDTO {
     public PaymentDTO() {
     }
 
-    public PaymentDTO(Long cartId, Double amount, PaymentStatus status) {
-        this.cartId = cartId;
-        this.amount = amount;
-        this.status = status;
-    }
-
     public Long getCartId() {
         return cartId;
-    }
-
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
     }
 
     public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
     public PaymentStatus getStatus() {
         return status;
+    }
+
+    public void setCartId(Long cartId) {
+        this.cartId = cartId;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
     public void setStatus(PaymentStatus status) {

@@ -3,18 +3,18 @@ package com.curso.store.controller;
 import com.curso.store.dto.ProductDTO;
 import com.curso.store.mapper.ProductMapper;
 import com.curso.store.domains.Product;
-import com.curso.store.service.StoreService;
+import com.curso.store.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-public class StoreController {
+public class ProductController {
 
-    private final StoreService service;
+    private final ProductService service;
 
-    public StoreController(StoreService service) {
+    public ProductController(ProductService service) {
         this.service = service;
     }
 

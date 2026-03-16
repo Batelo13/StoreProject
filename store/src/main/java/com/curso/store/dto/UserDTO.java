@@ -5,18 +5,19 @@ public class UserDTO {
     private String name;
     private String email;
 
-    public UserDTO() {}
+    public UserDTO() {
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
         return email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setEmail(String email) {
