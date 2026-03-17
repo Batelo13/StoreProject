@@ -1,7 +1,6 @@
 package com.curso.store.domains;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
